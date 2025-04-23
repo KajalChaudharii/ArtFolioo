@@ -59,9 +59,9 @@ const gallerySections = [
                             "static/images/Prints/Etching/Etching_4.webp",
                             "static/images/Prints/Etching/Etching_5.webp",
                             "static/images/Prints/Etching/Etching_6.webp",
-                            "static/images/Prints/Etching/Etching_7_1.webp",
-                            "static/images/Prints/Etching/Etching_7_2.webp",
-                            "static/images/Prints/Etching/Etching_7_3.webp"
+                            "static/images/Prints/Etching/Etching_7_1.jpg",
+                            "static/images/Prints/Etching/Etching_7_2.jpg",
+                            "static/images/Prints/Etching/Etching_7_3.jpg"
                         ]
                     }
                 ]
@@ -239,8 +239,7 @@ function renderGallery() {
 
         card.innerHTML = `
         <div class="text-white text-center">
-          <div class="text-3xl mb-2">${section.icon}</div>
-          <div class="text-lg font-semibold">${section.label}</div>
+          <div class="text-lg">${section.label}</div>
         </div>
       `;
 
@@ -529,7 +528,7 @@ function updateViewer() {
     viewerImage.style.display = 'none';
 
     // === Image ===
-    if (/\.(jpg|jpeg|png|gif)$/i.test(currentMedia)) {
+    if (/\.(jpg|jpeg|png|gif|webp)$/i.test(currentMedia)) {
         viewerImage.src = currentMedia;
         viewerImage.onload = () => 
         viewerImage.style.display = 'block';
