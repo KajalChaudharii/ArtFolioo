@@ -30,7 +30,8 @@ const gallerySections = [
                     "static/images/Painting/Painting_13.webp",
                     "static/images/Painting/Painting_14.webp",
                     "static/images/Painting/Painting_15.webp",
-                    "static/images/Painting/Painting_16.webp"
+                    "static/images/Painting/Painting_16.jpg",
+                    "static/images/Painting/Painting_17.webp"
                 ]
             }
         ]
@@ -424,12 +425,10 @@ function renderItemImages(item, mediaList) {
     // Back Button
     const backButton = createBackButton("← Back", () => {
         console.log(`currentSubSectionIndex: ${currentSubSectionIndex}, currentSectionIndex: ${currentSectionIndex}`);
-        // Check if we are in a sub-section or main section
-        if (typeof currentSubSectionIndex === "number" && currentSubSectionIndex >= 0) {
-            // If we're in a sub-section, navigate back to that sub-section's items
-            renderSubSectionItems(currentSectionIndex, currentSubSectionIndex);
+
+        if (currentSectionIndex === 0 || currentSectionIndex === 2 || currentSectionIndex === 3) {
+            return goBackToGallery();
         } else {
-            // If we're not in a sub-section, navigate back to the main section's items
             renderSectionItems(currentSectionIndex);
         }
     });
