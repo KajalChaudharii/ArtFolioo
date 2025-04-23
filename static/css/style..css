@@ -1,0 +1,118 @@
+/* Reset */
+html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Glass card style */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(200, 200, 200, 0.4);
+  }
+  
+  /* Hover Button */
+  .btn-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Section Title */
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #555;
+  }
+  
+  /* Navbar */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  nav .menu {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  nav a {
+    color: #333;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  nav a:hover {
+    color: #888;
+  }
+  
+  /* Carousel */
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  .carousel-images img {
+    width: 100%;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+  }
+  
+  /* Card Hover */
+  .card-hover {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: scale(1.05);
+    opacity: 0.95;
+  }
+  
+  /* Viewer Modal */
+  #imageViewer {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #222;
+  }
+  #viewerDetails {
+    background: rgba(255, 255, 255, 0.8);
+    color: #222;
+  }
+  
+  /* Form Styles */
+  input, textarea {
+    background-color: rgba(245, 245, 245, 0.9);
+    color: #333;
+    border: 1px solid #ccc;
+  }
+  input::placeholder, textarea::placeholder {
+    color: #999;
+  }
+  
+  /* Footer */
+  footer {
+    color: #777;
+    border-top: 1px solid #ddd;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  footer a {
+    color: #333;
+  }
+  footer a:hover {
+    color: #000;
+  }
+  

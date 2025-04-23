@@ -1,0 +1,123 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  .glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  .section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #fff;
+  }
+  
+  /* Mobile-first navbar */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    padding: 1rem;
+  }
+  
+  nav .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  nav a {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  /* Carousel styles */
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel-images img {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  
+
+  /* Card hover animation */
+  .card-hover {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+/* Image zoom on viewer toggle */
+#viewerImage.scale-110 {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Fade in modal */
+#imageViewer.show {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#gallerySection {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+
+
+#imageViewer {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#imageViewer.show {
+  opacity: 1;
+  transform: scale(1);
+}
