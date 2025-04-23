@@ -545,7 +545,6 @@ function updateViewer() {
     // Update counter + metadata
     imageCounter.innerText = `${currentIndex + 1} / ${currentImages.length}`;
     document.getElementById("detailTitle").innerText = currentItem.title;
-    document.getElementById("detailMeta").innerText = `📐 ${currentItem.details.size} • 🎨 ${currentItem.details.color} • 📅 ${currentItem.details.date}`;
 }
 
 function nextImage() {
