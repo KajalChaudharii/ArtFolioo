@@ -225,19 +225,11 @@ const loadingSpinner = document.getElementById("loadingSpinner");
 let currentSectionIndex = null;
 let currentSubSectionIndex = null;
 
-function showLoading() {
-    loadingSpinner.classList.remove("hidden");
-}
-
-function hideLoading() {
-    loadingSpinner.classList.add("hidden");
-}
-
 // ----------------------------------
 // Render Main Gallery
 // ----------------------------------
 function renderGallery() {
-    showLoading();
+    
     galleryContainer.innerHTML = "";
     gallerySections.forEach((section, idx) => {
         const card = document.createElement("div");
@@ -254,14 +246,14 @@ function renderGallery() {
 
         galleryContainer.appendChild(card);
     });
-    hideLoading();
+    
 }
 
 // ----------------------------------
 // Render Sub‑section List or Direct Items
 // ----------------------------------
 function renderSectionItems(sectionIndex) {
-    showLoading();
+    
     currentSectionIndex = sectionIndex;
     currentSubSectionIndex = null;
 
@@ -316,14 +308,14 @@ function renderSectionItems(sectionIndex) {
 
     galleryContainer.classList.add("hidden");
     sectionItems.classList.remove("hidden");
-    hideLoading();
+    
 }
 
 // ----------------------------------
 // Render Items of a Chosen Sub‑section
 // ----------------------------------
 function renderSubSectionItems(sectionIndex, subIndex) {
-    showLoading();
+    
     currentSubSectionIndex = subIndex;
     const section = gallerySections[sectionIndex];
     const subSection = section.subSections[subIndex];
@@ -360,11 +352,10 @@ function renderSubSectionItems(sectionIndex, subIndex) {
 
     galleryContainer.classList.add("hidden");
     sectionItems.classList.remove("hidden");
-    hideLoading()
 }
 
 function renderItemImages(item, mediaList) {
-    showLoading();
+    
     itemList.innerHTML = "";
 
     // Title
@@ -449,7 +440,7 @@ function renderItemImages(item, mediaList) {
 
     galleryContainer.classList.add("hidden");
     sectionItems.classList.remove("hidden");
-    hideLoading();
+    
 }
 
 
@@ -506,7 +497,7 @@ let currentIndex = 0;
 let currentItem = null;
 
 function openViewer(item, mediaList, idx) {
-    showLoading();
+    
     currentImages = mediaList;
     currentIndex = idx;
     currentItem = item;
@@ -515,7 +506,7 @@ function openViewer(item, mediaList, idx) {
     const viewer = document.getElementById("imageViewer");
     viewer.classList.remove("hidden");
     viewer.classList.add("show");
-    hideLoading();
+    
 }
 
 function closeViewer() {
@@ -527,38 +518,25 @@ function closeViewer() {
 
 function updateViewer() {
     const viewerImage = document.getElementById("viewerImage");
-    const viewerVideo = document.getElementById("viewerVideo");
-    const viewerIframe = document.getElementById("viewerIframe"); // New iframe for Drive videos
     const imageCounter = document.getElementById("imageCounter");
     const viewerDetails = document.getElementById("viewerDetails");
 
     const currentMedia = currentImages[currentIndex];
     console.log(`currentMedia: ${currentMedia}`);
-    showLoading();
+    
 
     // Hide all viewers initially
     viewerImage.style.display = 'none';
-    viewerVideo.style.display = 'none';
-    viewerIframe.style.display = 'none';
 
     // === Image ===
     if (/\.(jpg|jpeg|png|gif)$/i.test(currentMedia)) {
         viewerImage.src = currentMedia;
-        viewerImage.onload = () => hideLoading();
+        viewerImage.onload = () => 
         viewerImage.style.display = 'block';
-    }
-    // === Direct video file ===
-    else if (/\.(mp4|webm|ogg)$/i.test(currentMedia)) {
-        viewerVideo.src = currentMedia;
-        viewerVideo.onloadeddata = () => {
-            hideLoading();
-            viewerVideo.play();
-        };
-        viewerVideo.style.display = 'block';
     }
     // === Google Drive video ===
     else if (currentMedia.includes("drive.google.com")) {
-        hideLoading();
+        
         const previewURL = currentMedia.replace("/view", "/preview");
         window.open(previewURL, "_blank"); // Open in new tab
         closeViewer();
